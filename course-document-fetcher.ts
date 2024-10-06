@@ -77,7 +77,6 @@ async function getCourseDataForRecentTerm(recentTermCode: string): Promise<Cours
         }
 
         const courseData: Course[] = await coursesHttpResponse.json();
-        console.log(courseData);
 
         return courseData;
     } catch (error) {
