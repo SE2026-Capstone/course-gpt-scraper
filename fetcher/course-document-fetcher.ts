@@ -1,4 +1,4 @@
-const API_KEY = process.env.UWATERLOO_API_KEY;
+const API_KEY = process.env.UWATERLOO_API_KEY || '';
 
 // This defines the interface for the data within a ChromaDB document, to be consumed by the writer script.
 export interface ChromaDocumentData {
