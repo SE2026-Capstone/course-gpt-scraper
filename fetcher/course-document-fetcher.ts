@@ -1,7 +1,7 @@
-const API_KEY = 'PUT-KEY-HERE';
+const API_KEY = process.env.UWATERLOO_API_KEY || '';
 
 // This defines the interface for the data within a ChromaDB document, to be consumed by the writer script.
-interface ChromaDocumentData {
+export interface ChromaDocumentData {
     id: string; // Course code.
     metadata: { [key: string]: string }; // Metadata object (only course name for now).
     documentData: string; // Course description.
@@ -47,11 +47,11 @@ async function getMostRecentTermCode(): Promise<string> {
         }
 
         const recentTermData: Term = await recentTermHttpResponse.json();
-        console.info('Recent term json data:');
-        console.info(recentTermData);
+        // console.info('Recent term json data:');
+        // console.info(recentTermData);
 
         const recentTermCode = recentTermData.termCode;
-        console.info(`Recent term code: ${recentTermCode}`);
+        // console.info(`Recent term code: ${recentTermCode}`);
 
         return recentTermCode;
     } catch (error) {

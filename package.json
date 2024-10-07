@@ -3,9 +3,16 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "chromadb-default-embed": "^2.13.2",
+    "ts-node": "^10.9.2"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "dependencies": {
+    "@langchain/community": "^0.3.4",
+    "@langchain/core": "^0.3.7",
+    "@langchain/openai": "^0.3.5",
+    "chromadb": "^1.9.2",
+    "dotenv": "^16.4.5",
+    "onnxruntime-node": "^1.19.2"
   }
 }
