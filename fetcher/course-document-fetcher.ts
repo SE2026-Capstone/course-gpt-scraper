@@ -1,3 +1,8 @@
+import dotenv from "dotenv"
+import path from "path"
+
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
 const API_KEY = process.env.UWATERLOO_API_KEY || '';
 
 // This defines the interface for the data within a ChromaDB document, to be consumed by the writer script.
@@ -93,7 +98,7 @@ async function formatCourseDataForChroma(unformattedCourseData: Course[]): Promi
             metadata: {
                 courseName: course.title,
             },
-            documentData: course.description
+            documentData: `${course.subjectCode} ${course.catalogNumber} -- ${course.title} : ${course.description}`
         };
     });
 
@@ -116,3 +121,5 @@ export async function getCourseDataForChroma(): Promise<ChromaDocumentData[]> {
         throw error;
     }
 }
+
+console.log(await getCourseDataForChroma())
